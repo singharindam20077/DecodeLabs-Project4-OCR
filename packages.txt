@@ -1,7 +1,1 @@
 tesseract-ocr
-streamlit
-opencv-python-headless
-pytesseract
-Pillow
-tensorflow
-numpy
