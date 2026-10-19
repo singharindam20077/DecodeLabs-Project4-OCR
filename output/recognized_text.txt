@@ -1,0 +1,6 @@
+DECODELASS - ARTIFICIAL INTELLIGENCE
+Project 4: OCR Text Recognition
+
+Image preprocessing improves text extraction,
+Python and Tesseract OCR are used in this project.
+‘Validation target: confidence benchmark of 80%.
