@@ -14,10 +14,16 @@ st.set_page_config(
     layout="wide"
 )
 
-# Windows Tesseract path
-pytesseract.pytesseract.tesseract_cmd = (
-    r"C:\Program Files\Tesseract-OCR\tesseract.exe"
-)
+import os
+import shutil
+import pytesseract
+
+tesseract_path = shutil.which("tesseract")
+
+if tesseract_path:
+    pytesseract.pytesseract.tesseract_cmd = tesseract_path
+else:
+    st.warning("Tesseract OCR is not installed or unavailable.")
 
 st.markdown("""
 <style>
