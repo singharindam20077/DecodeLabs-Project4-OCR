@@ -1,77 +1,126 @@
 
-# DecodeLabs AI Project 4: OCR Text Recognition
+# DecodeLabs AI Vision
+## AI Project 4: OCR Text Recognition and Image Classification
 
-## Project Overview
-This project implements Optical Character Recognition (OCR) using Python, Tesseract OCR, and OpenCV. It extracts text from an input image and saves the recognized text as a file.
+A Python-based AI application with a Streamlit web interface that extracts text from images and identifies image contents using pretrained AI models.
 
-## Objectives
-- Extract readable text from images.
-- Apply image preprocessing to improve recognition.
-- Use a pretrained OCR engine.
-- Display the extracted text and confidence score.
-- Validate the result against an 80% confidence benchmark.
+## Features
+
+- **OCR Text Recognition:** Extract text from uploaded images using Tesseract OCR.
+- **Image Preprocessing:** Grayscale conversion, Gaussian blur, and adaptive thresholding using OpenCV.
+- **AI Image Recognition:** Classify images using the pretrained MobileNetV2 model.
+- **Confidence Scores:** Display OCR confidence and image classification probabilities.
+- **Download Results:** Download extracted text as a text file.
+- **Web Interface:** Upload images and use both recognition modes in a browser.
 
 ## Technologies Used
-- Python
-- OpenCV
-- pytesseract
-- Tesseract OCR
 
-## Methodology
-1. Load the input image.
-2. Convert the image to grayscale.
-3. Apply Gaussian blur to reduce noise.
-4. Use adaptive thresholding to improve contrast.
-5. Extract text using Tesseract OCR.
-6. Calculate the average word confidence.
-7. Save the processed image and recognized text.
+- Python
+- Streamlit
+- OpenCV
+- Tesseract OCR
+- pytesseract
+- TensorFlow
+- MobileNetV2
+- NumPy
+- Pillow
 
 ## Project Structure
+
 ```text
 DecodeLabs_Project4_OCR/
-├── input_images/
-│   └── sample_text.png
-├── output/
-│   ├── preprocessed_image.png
-│   └── recognized_text.txt
+├── app.py
 ├── main.py
 ├── requirements.txt
-└── README.md
+├── README.md
+├── input_images/
+│   └── sample_text.png
+└── output/
+    ├── preprocessed_image.png
+    └── recognized_text.txt
 ```
 
-## How to Run
+## Installation
 
-### 1. Install Python packages
+### 1. Install Python
+
+Install Python and ensure it is available through the Windows `py` command.
+
+### 2. Install Tesseract OCR
+
+Install Tesseract OCR separately and verify that its executable is available at:
+
+```text
+C:\Program Files\Tesseract-OCR\tesseract.exe
+```
+
+If installed elsewhere, update the path in `app.py` and `main.py`.
+
+### 3. Clone the Repository
+
+```bash
+git clone https://github.com/singharindam20077/DecodeLabs-Project4-OCR.git
+cd DecodeLabs-Project4-OCR
+```
+
+### 4. Install Dependencies
+
 ```bash
 py -m pip install -r requirements.txt
 ```
 
-### 2. Install Tesseract OCR
-Install the Tesseract OCR engine separately and ensure the path in `main.py` matches your installation.
+### 5. Launch the Web Application
 
-### 3. Run the application
 ```bash
-py main.py
+py -m streamlit run app.py
 ```
 
-## Results
-The application successfully extracted text from the sample image.
+Open the local URL shown in the terminal, usually `http://localhost:8501`.
 
-Observed average OCR confidence during testing: **85.90%**.
+## How to Use
 
-The result exceeded the project's 80% confidence benchmark for this test image.
+### Text Recognition
+
+1. Select Text Recognition (OCR).
+2. Upload a PNG, JPG, JPEG, BMP, or WEBP image.
+3. Click **Recognize Text**.
+4. View the extracted text and OCR confidence score.
+5. Download the extracted text if required.
+
+### Image Recognition
+
+1. Select Image Recognition.
+2. Upload an image containing an object or animal.
+3. Click **Recognize Image**.
+4. View the top five predicted categories and their scores.
+
+The first image-recognition run may download pretrained model weights and requires an internet connection.
+
+## Validation
+
+The sample OCR test achieved an average confidence score of **85.90%**, exceeding the project's 80% benchmark.
+
+Image classification was tested with a cat image, and the model returned cat-related predictions.
+
+These results describe the sample tests performed. Results may vary with image quality and content.
 
 ## Output Files
-- `output/preprocessed_image.png`: Preprocessed image.
-- `output/recognized_text.txt`: Extracted text.
 
-## Limitations
-OCR accuracy may decrease with blurry images, handwriting, unusual fonts, poor lighting, or tilted text.
+The application saves the following OCR results in the `output/` folder:
 
-Confidence scores estimate the OCR engine's certainty and do not guarantee perfect recognition.
+- `preprocessed_image.png`
+- `recognized_text.txt`
 
-## Conclusion
-This project demonstrates a basic OCR pipeline using image preprocessing and a pretrained recognition engine to extract machine-readable text from images.
+## Notes
+
+- OCR confidence is not the same as overall recognition accuracy.
+- Image classification scores are model probabilities, not guaranteed accuracy.
+- Tesseract OCR is a separate system dependency and is not installed by `pip install -r requirements.txt`.
 
 ## Author
-Student project for the DecodeLabs Artificial Intelligence Industrial Training Kit.
+
+Arindam Singh
+
+## Repository
+
+https://github.com/singharindam20077/DecodeLabs-Project4-OCR

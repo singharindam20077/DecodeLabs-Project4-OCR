@@ -1,3 +1,6 @@
-
+streamlit
 opencv-python
 pytesseract
+numpy
+Pillow
+tensorflow
